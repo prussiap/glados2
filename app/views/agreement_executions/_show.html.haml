@@ -1,0 +1,8 @@
+.row 
+  .span1= link_to agreement_execution.id, agreement_execution_path(agreement_execution.id)
+  .span3= link_to agreement_execution.person.name, person_path(agreement_execution.person.id) 
+  .span3= link_to agreement_execution.agreement.name + ' v' + agreement_execution.agreement.version.to_s, agreement_path(agreement_execution.agreement.id)
+  .span2= agreement_execution.date_signed.strftime("%Y-%m-%d")
+  .span2= link_to "Dropbox Link", agreement_execution.agreement_url 
+  .span1= link_to "Edit", edit_agreement_path(agreement_execution.id)
+  .span1= link_to "Delete", agreement_execution_path(agreement_execution.id), confirm: "Are you sure?", method: :delete

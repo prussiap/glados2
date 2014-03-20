@@ -1,0 +1,30 @@
+.row 
+  .offset11.span1
+    .btn.btn-primary= link_to "New", new_possession_contract_path 
+%b.row
+  .span1 ID 
+  .span2 Make 
+  .span2 Model 
+  .span2 Name 
+  .span2 Contract Type
+  .span2 Payment if any 
+  .span2 Start Date 
+  .span2 Expires 
+  .span1 Edit 
+  .span1 Delete 
+
+
+- @possession_contracts.each do |contract|
+  .row
+    .span1= contract.id 
+    .span2= link_to contract.equipment.make, possession_contract_path(contract.id)  
+    .span2= contract.equipment.model 
+    .span2= contract.person.name 
+    .span2= contract.contract_type 
+    .span2= number_to_currency(contract.payment) 
+    .span2= contract.start_date 
+    .span2= contract.expires 
+    .span2= link_to "Edit", edit_possession_contract_path(contract.id)  
+    .span2= link_to "Delete", possession_contract_path(contract.id), :confirm => "Are you sure?", :method => :delete
+
+.digg_pagination= will_paginate @possession_contracts, :container => false

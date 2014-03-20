@@ -1,0 +1,13 @@
+.row
+	#get_current_date{style: "display:none"}= @date.strftime "%m-%d-%Y"
+	#get_current_path{style: "display:none"}= request.env['PATH_INFO']
+	.span3 Report for:= @date 
+	#my_date_picker.offset8.span2
+
+.row.lead
+	.span4
+		- if defined?(person_name)
+			Equipment for: #{person_name}
+		- else
+			Equipment for Lab
+	.offset5.span3 Showing "#{item_count} " + "item".pluralize(item_count)

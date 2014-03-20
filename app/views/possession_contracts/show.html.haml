@@ -1,0 +1,24 @@
+%b.row
+    .span1 ID 
+    .span2 Make 
+    .span2 Model 
+    .span2 Name 
+    .span2 Contract Type 
+    .span2 Payment (if any) 
+    .span2 Start Date 
+    .span1 Expires 
+    .span1 Edit 
+    .span1 Delete 
+
+.row
+    .span1= @possession_contract.id
+    .span2= @possession_contract.equipment.make 
+    .span2= @possession_contract.equipment.model
+    .span2= @possession_contract.person.name 
+    .span2= @possession_contract.contract_type 
+    .span2= number_to_currency(@possession_contract.payment) 
+    .span2= @possession_contract.start_date 
+    .span2= @possession_contract.expires 
+    .span2= link_to "Edit", edit_possession_contract_path(@possession_contract.id)  
+    .span1= link_to "Delete", possession_contract_path(@possession_contract.id), :confirm => "Are you sure?", :method => :delete 
+

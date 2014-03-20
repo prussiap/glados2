@@ -1,10 +1,16 @@
-=semantic_form_for @fob do |f|
-  =f.semantic_errors :base
-  =f.inputs do
+=semantic_form_for @agreement_execution do |f|
+-f.semantic_errors :base
+  = f.inputs do 
+   .row
+     .span2 Person*: 
+     .span5 f.input :person, :as => :select, :collection => Person.find(:all, :order => :name), :label=> false 
     .row
-      .span1 Key
-      .span9=f.input :key, :input_html => { :size => 20 }, :label => false
+      .span5 Agreement*: 
+      .span5 f.input :agreement, :as => :select, :collection => Agreement.find(:all, :order => :name), :label=> false 
     .row
-      .span1 Person (optional)
-      .span3=f.input :person, :as => :select, :collection => Person.find(:all, :order => :name), :label => false
-  =f.actions
+      .span5 Date*: 
+      .span5 f.input :date_signed, :as => :date_picker, :label=> false 
+    .row 
+      .span5 Dropbox URL*: 
+      .span5 f.input :agreement_url, :as => :url, :label=> false 
+  = f.actions

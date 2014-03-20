@@ -1,0 +1,23 @@
+= semantic_form_for @possession_contract do |f|
+  - f.semantic_errors :base
+  = f.inputs do 
+    .row
+      .span2 Person: 
+      .span5= f.input :person, :as => :select, :collection => Person.find(:all, :order => :name), :label=> false 
+    - equipment_make_model_array = Equipment.find(:all, :order => :make).map { |equipment|  [equipment.make + ' ' + equipment.model, equipment.id] }
+    .row
+      .span2 Equipment: 
+      .span5= f.input :equipment, :as => :select, :collection => equipment_make_model_array , :label => false
+    .row
+      .span2 Contract Type: 
+      .span5= f.input :contract_type, :as => :select, :collection => PossessionContract::ALL_CONTRACT_TYPES, :label => false 
+    .row 
+      .span2 Payment ($): 
+      .span3= f.input :payment, :label => false 
+    .row  
+      .span2 Start Date: 
+      .span5= f.input :start_date, :as => :date_picker, :label=> false 
+      .span2 Expires: 
+      .span5= f.input :expires, :as => :date_picker, :label=> false 
+  = f.actions 
+

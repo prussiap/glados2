@@ -9,7 +9,7 @@
   .span1 Edit
   .span1 Delete
 - @people.each do |person|
-  .row
+  %b.row
     .span1= link_to person.id, person_path(person.id)
     .span3= person.name
     .span2

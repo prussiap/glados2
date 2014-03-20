@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %title Glados2
+    = stylesheet_link_tag "application", :media => "all" 
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{data_controller: "#{controller_name}", data_action: "#{action_name}"}
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{href: root_path} Glados 2
+          .nav-collapse.collapse
+            %ul.nav
+              %li
+                %a{href: people_path} People
+              %li
+                %a{href: equipment_index_path} Equipment
+              %li
+                %a{href: possession_contracts_path} Possession Contracts
+              %li
+                %a{href: people_equipment_path} Ownership Reports
+              %li
+                %a{href: agreements_path} Agreements
+              %li
+                %a{href: agreement_executions_path} Agreement Executions
+              %li
+                %a{href: doors_path} Doors
+              %li
+                %a{href: fobs_path} Fobs
+              %li
+                %a{href: door_keys_path} Door Keys
+    .row . 
+    .row.mainwindow
+      .some_alert
+        - flash.each do |key, value| 
+          %div{class: "alert alert-#{key}"} value
+    = yield 
