@@ -1,0 +1,20 @@
+- item_count= @possession_contracts.count 
+  = render :partial => "header_equipment_possession_on_date", :locals => { :date => @date, :item_count => item_count, :person_name => @person.name } 
+
+%table.table.table-striped{border: "1"}
+  %tr
+    %th Make 
+    %th Model 
+    %th Serial Number 
+    %th Contract Type 
+    %th Amount Owed
+    - @possession_contracts.each do | pos_contract | 
+   %tr
+    %td = pos_contract.equipment.make  
+    %td = pos_contract.equipment.model 
+    %td = pos_contract.equipment.serial_number 
+    %td = pos_contract.contract_type  
+    %td{border: "1"} = number_to_currency(pos_contract.payment)
+  %tr
+    %td{colspan: "4"} 
+    %td Total = number_to_currency(lease_total_payments(@possession_contracts))  

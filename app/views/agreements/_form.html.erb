@@ -1,9 +1,0 @@
-<%= semantic_form_for @agreement do |f| %>
- <%= f.semantic_errors :base%>
-  <%= f.inputs do %>
-    <div class="row"><div class="span1">Name: </div><div class ="span5"><%= f.input :name , :input_html => { :size => 20, :class => "override-width" }, :label => false %></div></div>
-    <div class="row"><div class="span1">Author: </div><div class ="span5"><%= f.input :author, :as => :select, :collection => Agreement::ALL_AUTHOR_TYPES, :label => false%></div></div>
-    <div class="row"><div class ="span1">Version number: </div><div class ="span5"<%= f.input :version, :as => :string, :input_html => { :maxlength => 3, :class => "override-width" }, :label => false %></div></div>
-  <% end %>
-  <%= f.actions %>
-<% end %>

@@ -1,6 +1,0 @@
-
-<%= form_tag("/open", method: "get") do %><p>
-<b>Fob Key</b><%= collection_select :fob, :id, @fobs, :id, :key %> <br>
-<b>Door Name</b><%= collection_select :door, :id, @doors, :id, :name %><br>
-<%= submit_tag("Open Door") %>
-<% end %>

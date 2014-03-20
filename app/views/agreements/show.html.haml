@@ -1,0 +1,10 @@
+.row 
+  .offset9.span3= link_to "New Agreement", new_agreement_path 
+%b.row
+  .span3 Name 
+  .span3 Author
+  .span3 Version 
+  .span1 Edit 
+  .span1 Delete 
+%div
+  = render :partial => "show", :locals => { :agreement => @agreement } 

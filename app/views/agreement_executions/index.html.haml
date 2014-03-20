@@ -1,0 +1,15 @@
+.row 
+  .span3.offset9= link_to "New Agreement Execution", new_agreement_execution_path 
+%b.row
+  .span1 ID
+  .span3 Associated Person
+  .span3 Associated Agreement
+  .span2 Date Signed
+  .span2 Signed Document
+  .span1 Edit
+  .span1 Delete
+
+- @agreement_executions.each do |agreement_execution|
+  = render :partial => "show", :locals => { :agreement_execution => agreement_execution} 
+
+  .digg_pagination= will_paginate @agreement_executions, {:container => false} 

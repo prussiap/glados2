@@ -1,9 +1,0 @@
-  <div class ="row">
-      <div class ="span1"><%= link_to agreement_execution.id, agreement_execution_path(agreement_execution.id) %></div>
-      <div class ="span3"><%= link_to agreement_execution.person.name, person_path(agreement_execution.person.id) %></div>
-      <div class ="span3"><%= link_to agreement_execution.agreement.name + ' v' + agreement_execution.agreement.version.to_s, agreement_path(agreement_execution.agreement.id) %></div>
-      <div class ="span2"><%= agreement_execution.date_signed.strftime("%Y-%m-%d") %></div>
-      <div class ="span2"><%= link_to "Dropbox Link", agreement_execution.agreement_url %></div>
-      <div class ="span1"><%= link_to "Edit", edit_agreement_path(agreement_execution.id) %></div>
-      <div class ="span1"><%= link_to "Delete", agreement_execution_path(agreement_execution.id), :confirm => "Are you sure?", :method => :delete %></div>
-  </div>

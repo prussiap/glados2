@@ -6,7 +6,11 @@
   .span2 Doors
   .span1 Edit
   .span1 Delete
-.row
+  .span2 Keys
+  .span2 Agreements
+  .span3 Possession Contracts
+  .span2 Ownership Report
+%b.row
   .span2= @person.name
   .span2
     - if @person.fobs.count > 0
@@ -20,12 +24,6 @@
           %li= link_to door.name, door_path(door.id)
   .span1= link_to "Edit", edit_person_path(@person.id)
   .span1= link_to "Delete", person_path(@person.id)
-.row
-%b.row
-  .span2 Door Keys
-  .span2 Agreemts
-  .span3 Possession Contracts
-.row
   .span2
     - if @person.door_keys.count > 0
       %ul.door_keys
@@ -41,12 +39,8 @@
       %ul.possession_contracts
         - @person.possession_contracts.each do |possession_contract|
           %li= link_to possession_contract.id,  possession_contract_path(possession_contract.id)
-
-%b.row
-  .span2 Ownership Report
-.row
   .span2
     - if @person.equipment.count > 0
       %ul.ownership_report
-        %li= link_to "Ownership Contract",  show_person_equipment(person.id)
+        %li= link_to "Ownership Contract", show_person_equipment(person.id)
 
