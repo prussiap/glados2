@@ -23,8 +23,6 @@ class PeopleController < ApplicationController
     if @person.nil?
       flash[:error] = "The person you are looking for does not exist or the id was invalid"
       redirect_to people_path
-    else
-      @person
     end
   end
 

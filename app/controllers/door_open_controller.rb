@@ -1,5 +1,4 @@
 class DoorOpenController < ApplicationController 
- # respond_to :json, :html
 
   def check 
       @fob_param= params[:fob]
@@ -7,7 +6,7 @@ class DoorOpenController < ApplicationController
       @message = [] 
 
     if @fob_param.nil?
-      @message<<"Missing fob parameter"
+      @message<< "Missing fob parameter"
     else
       @fob = Fob.find_by_key(@fob_param)
       if @fob.nil?
@@ -38,11 +37,9 @@ class DoorOpenController < ApplicationController
   def render_json(access, reason)
      respond_to do |format|
             format.json {render json: {can_open: access, message: reason}}
-            format.html
       end 
   end
 end 
 
 
 
-#curl "http://localhost:3000/door_open.json?fob=1234567890A&door=Front+Door"
