@@ -1,0 +1,26 @@
+#search
+.row  
+  .offset9.span2= link_to "Add Equipment", new_equipment_path  
+  .offset12 
+    = form_tag equipment_index_path, method: 'get' do
+      = text_field_tag :search, params[:search], class: 'search_class' 
+      = submit_tag "Search", name: nil 
+.row
+  %strong.span1 ID   
+  %strong.span2 Make 
+  %strong.span2 Model
+  %strong.span2 Replacement Cost 
+  %strong.span2 Serial Number 
+  %strong.span1 Edit 
+  %strong.span1 Delete 
+
+- @equip.each do |piece| 
+  .row
+    .span1= piece.id 
+    .span2= piece.make 
+    .span2= piece.model 
+    .span2= number_to_currency(piece.replacement_cost) 
+    .span2= piece.serial_number 
+    .span1= link_to "Edit", edit_equipment_path(piece.id)
+    .span1= link_to "Delete", equipment_path(piece.id), confirm: "Are you sure?", method: :delete
+  .digg_pagination= will_paginate @equip, container: false

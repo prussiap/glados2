@@ -1,0 +1,6 @@
+
+= form_tag("/open", method: "get") do 
+%b Fob Key = collection_select :fob, :id, @fobs, :id, :key 
+%b Door Name = collection_select :door, :id, @doors, :id, :name 
+= submit_tag("Open Door")
+

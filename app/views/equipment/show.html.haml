@@ -1,0 +1,19 @@
+.row
+  %strong.span1 ID   
+  %strong.span2 Make 
+  %strong.span2 Model
+  %strong.span2 Replacement Cost 
+  %strong.span2 Serial Number 
+  %strong.span1 Edit 
+  %strong.span1 Delete 
+
+  .row
+  - @equip.each do |piece| 
+    .span1= piece.id 
+    .span2= piece.make 
+    .span2= piece.model 
+    .span2= number_to_currency(piece.replacement_cost) 
+    .span2= piece.serial_number 
+    .span1= link_to "Edit", edit_equipment_path(piece.id)
+    .span1= link_to "Delete", equipment_path(piece.id), confirm: "Are you sure?", method: :delete
+    .digg_pagination= will_paginate @equip, container: false

@@ -3,3 +3,5 @@ class Fob < ActiveRecord::Base
   belongs_to :person
   validates :key, :presence => true, :uniqueness => true
 end
+
+

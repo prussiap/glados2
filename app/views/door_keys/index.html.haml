@@ -1,11 +1,12 @@
 .row
   .offset10.span2= link_to "New Door Key", new_door_key_path
+%br
 .row
-  .span3 ID
-  .span3 Door Name
-  .span3 Person Name
-  .span3 Edit
-  .span3 Delete
+  %strong.span3 ID
+  %strong.span3 Door Name
+  %strong.span3 Person Name
+  %strong.span3 Edit
+  %strong.span3 Delete
 - @door_keys.each do |door_key|
   = render :partial => "show", :locals => { :door_key => door_key }
 

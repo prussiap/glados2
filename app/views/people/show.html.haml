@@ -1,11 +1,16 @@
 .row
   .offset9.span3= link_to "Add a Person", new_person_path
-%b.row
-  .span2 Name
-  .span2 Fobs
-  .span2 Doors
-  .span1 Edit
-  .span1 Delete
+%br
+.row
+  %strong.span2 Name
+  %strong.span2 Fobs
+  %strong.span2 Doors
+  %strong.span1 Edit
+  %strong.span1 Delete
+  %strong.span2 Keys
+  %strong.span2 Agreement
+  %strong.span3 Possession Contracts
+  %strong.span2 Ownership Report
 .row
   .span2= @person.name
   .span2
@@ -20,33 +25,23 @@
           %li= link_to door.name, door_path(door.id)
   .span1= link_to "Edit", edit_person_path(@person.id)
   .span1= link_to "Delete", person_path(@person.id)
-.row
-%b.row
-  .span2 Door Keys
-  .span2 Agreemts
-  .span3 Possession Contracts
-.row
   .span2
     - if @person.door_keys.count > 0
       %ul.door_keys
         - @person.door_keys.each do |door_key|
           %li= link_to door_key.id, door_key_path(door_key.id)
   .span2
-    - if @person.agreements.count > 0
+    - if @person.agreement_executions.count > 0
       %ul.agreements
-        - @person.agreements.each do |agreement|
-          %li= link_to agreement.name, agreement_path(agreement.id)
+        - @person.agreement_executions.each do |agreement|
+          %li= link_to agreement.date_signed, agreement_executions_path(agreement.id)
   .span3
     - if @person.possession_contracts.count > 0
       %ul.possession_contracts
         - @person.possession_contracts.each do |possession_contract|
           %li= link_to possession_contract.id,  possession_contract_path(possession_contract.id)
-
-%b.row
-  .span2 Ownership Report
-.row
   .span2
     - if @person.equipment.count > 0
       %ul.ownership_report
-        %li= link_to "Ownership Contract",  show_person_equipment(person.id)
+        %li= link_to "Ownership Contract", show_person_equipment_path(@person.id)
 

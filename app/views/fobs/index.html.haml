@@ -1,11 +1,12 @@
 .row
   .offset10.span2= link_to "New Fob", new_fob_path
+%br
 .row
-  .span1 ID
-  .span3 Key
-  .span2 Person
-  .span3 Edit
-  .span3 Delete
+  %strong.span1 ID
+  %strong.span3 Key
+  %strong.span2 Person
+  %strong.span3 Edit
+  %strong.span3 Delete
 - @fobs.each do |fob|
   .row
     .span1= fob.id

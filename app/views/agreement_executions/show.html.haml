@@ -1,0 +1,14 @@
+.row 
+  .span3.offset9= link_to "New Agreement Execution", new_agreement_execution_path 
+%br
+.row
+  %strong.span1 ID
+  %strong.span3 Associated Person
+  %strong.span3 Associated Agreement
+  %strong.span2 Date Signed
+  %strong.span2 Signed Document
+  %strong.span1 Edit
+  %strong.span1 Delete
+%div 
+  = render partial: "show", locals: {agreement_execution: @agreement_execution}
+

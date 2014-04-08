@@ -7,7 +7,6 @@ gem 'bootstrap-sass', '2.1'
 gem 'validate_url'
 gem 'formtastic', :git => 'https://github.com/justinfrench/formtastic.git'
 gem 'jquery_datepicker'
-gem 'pg'
 gem 'yaml_db'
 gem 'will_paginate'
 gem 'haml-rails'
@@ -24,6 +23,9 @@ group :test do
   gem 'capybara'
 end
 
+group :production do 
+  gem 'pg'
+end 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -31,13 +33,16 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+   #gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -4,8 +4,8 @@
   .span3
     - if person.fobs.count > 0
       %ul.fobs
-        - person.fobs.each do |fob|
-          %li= link_to fob.key, fob_path(fob.id)
+      - person.fobs.each do |fob|
+        %li= link_to fob.key, fob_path(fob.id)
   .span3
     - if person.doors.count > 0
       %ul.doors

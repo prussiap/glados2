@@ -1,13 +1,14 @@
 .row
   .offset9.span3= link_to "Add a Person", new_person_path
-%b.row
-  .span1 ID
-  .span3 Name
-  .span2 Fobs
-  .span2 Doors
-  .span2 Door Keys
-  .span1 Edit
-  .span1 Delete
+%br
+.row
+  %strong.span1 ID
+  %strong.span3 Name
+  %strong.span2 Fobs
+  %strong.span2 Doors
+  %strong.span2 Door Keys
+  %strong.span1 Edit
+  %strong.span1 Delete
 - @people.each do |person|
   .row
     .span1= link_to person.id, person_path(person.id)
