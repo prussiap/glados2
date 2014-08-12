@@ -23,9 +23,9 @@ group :test do
   gem 'capybara'
 end
 
-group :production do 
+group :production do
   gem 'pg'
-end 
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -41,7 +41,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "dropbox-api"
-
+gem 'rails_12factor', group: :production
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -50,7 +50,7 @@ gem "dropbox-api"
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
